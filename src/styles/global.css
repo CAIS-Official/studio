@@ -1,118 +1,137 @@
-/* src/styles/global.css */
+/* ============================================================
+   CAIS — GLOBAL STYLES
+   Estructura:
+   1. Variables y base
+   2. Scroll y selección
+   3. Navbar
+   4. Botones
+   5. Hero
+   6. Secciones y kickers
+   7. Tarjetas de valor
+   8. Proceso
+   9. Precios
+   10. Tabla comparativa
+   11. Paneles informativos / mantenimiento / condiciones / documentos
+   12. FAQ
+   13. Contacto
+   14. Footer
+   15. Responsive
+   16. Reduced motion
+   ============================================================ */
 
-/* Fondo de la sección de Contacto */
-.contact-section {
-  background: radial-gradient(circle at center 40%, rgba(56, 189, 248, 0.15) 0%, rgba(5, 11, 20, 0) 60%);
-  background-color: transparent;
+
+/* ============================================================
+   1. VARIABLES Y BASE
+   ============================================================ */
+:root {
+  --cais-bg: #050b14;
+  --cais-panel: #0a1425;
+  --cais-panel-2: #0d1b2e;
+  --cais-primary: #38bdf8;
+  --cais-text: #e2e8f0;
+  --cais-muted: #94a3b8;
+  --cais-border: rgba(148, 163, 184, 0.16);
 }
 
-/* Hover para los enlaces del navbar */
+html {
+  background: var(--cais-bg);
+  scroll-behavior: smooth;       /* Scroll suave al navegar por anclas */
+  scroll-padding-top: 90px;      /* Compensa la navbar fija */
+}
+
+body {
+  background: var(--cais-bg);
+  color: var(--cais-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Selección de texto */
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #fff;
+}
+
+
+/* ============================================================
+   2. NAVBAR
+   ============================================================ */
+.navbar {
+  background: rgba(5, 11, 20, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--cais-border);
+}
+
+/* Animación: cambio de color de los links al pasar el ratón */
 .navbar-nav .nav-link {
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
+
 .navbar-nav .nav-link:hover {
   color: var(--cais-primary) !important;
 }
 
-/* Paleta de colores basada en el logo */
-:root {
-  --cais-bg: #050B14;        
-  --cais-primary: #38BDF8;   
-  --cais-text: #E2E8F0;      
-}
 
-/* Le damos el color al HTML, no al BODY */
-html {
-  background-color: var(--cais-bg);
-}
+/* ============================================================
+   3. BOTONES
+   ============================================================ */
 
-body {
-  background-color: transparent;
-  color: var(--cais-text);
-}
-
+/* Botón primario (cyan sólido) */
 .btn-primary {
-  background-color: var(--cais-primary);
+  background: var(--cais-primary);
   border-color: var(--cais-primary);
-  color: #000;
-  font-weight: 600;
+  color: #03111c;
+  font-weight: 700;
 }
 
-.btn-primary:hover {
-  background-color: #0284c7;
-  border-color: #0284c7;
+/* Animación: aclarado del botón primario en hover/focus */
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #7dd3fc;
+  border-color: #7dd3fc;
+  color: #03111c;
 }
 
-/* --- ESTILOS DE LAS TARJETAS (HOVER DINÁMICO) --- */
-.card {
-  background-color: #0A1425;
-  border: 1px solid #1E293B; /* Borde oscuro por defecto */
-  transition: all 0.3s ease-in-out; /* Animación suave */
+/* Botón outline claro (se rellena de cyan al hover) */
+.btn-outline-light {
+  border-color: rgba(226, 232, 240, 0.35);
 }
 
-/* Cuando el mouse está encima de la tarjeta */
-.card:hover {
-  border-color: var(--cais-primary); /* Borde celeste */
-  transform: translateY(-5px); /* Se eleva un poquito (efecto 3D) */
-  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15); /* Sombra celeste brillante */
-}
-
-/* El botón dentro de la tarjeta por defecto */
-.card .btn {
-  transition: all 0.3s ease-in-out;
-}
-
-/* Cuando el mouse está encima de la TARJETA, el BOTÓN también cambia */
-.card:hover .btn-outline-light {
-  background-color: var(--cais-primary);
+.btn-outline-light:hover {
+  background: var(--cais-primary);
   border-color: var(--cais-primary);
-  color: #000 !important; /* Texto oscuro para que contraste */
-  font-weight: 600;
+  color: #03111c;
 }
 
-.navbar {
-  background-color: rgba(5, 11, 20, 0.85); 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); 
-  border-bottom: 1px solid #1E293B;
-}
 
-/* HERO MEJORADO */
+/* ============================================================
+   4. HERO
+   ============================================================ */
+
+/* Fondo con rejilla sutil + glow radial superior */
 .hero-wrapper {
   position: relative;
   isolation: isolate;
-  background-color: #050B14;
-  background-image:
-    linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: center top;
   overflow: hidden;
+  background-color: var(--cais-bg);
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.055) 1px, transparent 1px);
+  background-size: 52px 52px;
+  background-position: center top;
 }
 
+/* Resplandor radial decorativo (no interactúa con el ratón) */
 .hero-glow {
   position: absolute;
-  top: -200px;
+  top: -260px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
+  width: min(900px, 100vw);
   height: 800px;
-  background: radial-gradient(
-    circle,
-    rgba(56, 189, 248, 0.3) 0%,
-    rgba(5, 11, 20, 0) 60%
-  );
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.23), transparent 65%);
   pointer-events: none;
   z-index: -1;
-}
-
-.text-gradient {
-  display: inline-block; /* Por si Chrome sigue terco con el degradado */
-  background: linear-gradient(135deg, #ffffff 30%, #38BDF8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
 }
 
 .hero-content {
@@ -120,56 +139,673 @@ body {
   z-index: 1;
 }
 
-/* LÍNEA DE TIEMPO (PROCESO) */
+.hero-lead {
+  max-width: 720px;
+  font-size: 1.25rem;
+  color: #cbd5e1;
+}
+
+/* Texto degradado (blanco → cyan) */
+.text-gradient {
+  display: inline-block;
+  background: linear-gradient(130deg, #fff 25%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Etiqueta tecnológica con tracking amplio */
+.tech-label {
+  letter-spacing: 3px;
+}
+
+
+/* ============================================================
+   5. SECCIONES Y KICKERS
+   ============================================================ */
+.section-divider {
+  border-top: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+/* Pequeña etiqueta superior de sección */
+.section-kicker {
+  display: inline-block;
+  color: var(--cais-primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-heading h2,
+.section-divider h2 {
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.section-intro {
+  max-width: 720px;
+}
+
+
+/* ============================================================
+   6. TARJETAS DE VALOR
+   ============================================================ */
+.value-card {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1px solid var(--cais-border);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(13, 27, 46, 0.88), rgba(8, 17, 31, 0.8));
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Animación: elevación + borde cyan + sombra al hover */
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.value-card > i {
+  font-size: 2.25rem;
+  color: var(--cais-primary);
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.value-card h4 {
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.value-card p {
+  color: var(--cais-muted);
+  margin: 0;
+}
+
+.portfolio-art {
+  max-height: 400px;
+  filter: drop-shadow(0 10px 30px rgba(56, 189, 248, 0.16));
+}
+
+/* ============================================================
+   PORTFOLIO - CODE CARD
+   ============================================================ */
+.portfolio-code-card {
+  background: #0d1b2e; /* El mismo fondo de tus paneles */
+  border: 1px solid var(--cais-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(56, 189, 248, 0.05); /* Sombra + leve brillo cyan */
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.portfolio-code-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.code-header {
+  background: rgba(5, 11, 20, 0.6);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.code-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  display: inline-block;
+}
+.code-header .dot.red { background: #ef4444; }
+.code-header .dot.yellow { background: #eab308; }
+.code-header .dot.green { background: #22c55e; }
+
+.code-body {
+  padding: 1.5rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+
+/* ============================================================
+   7. PROCESO
+   ============================================================ */
 .process-step {
   position: relative;
   text-align: center;
-  /* Eliminamos el z-index: 1 de aquí para que no afecte al contenedor entero */
 }
 
-/* El circulito con el número */
+/* Círculo con número de paso */
 .process-icon {
-  width: 80px;
-  height: 80px;
-  background-color: #0A1425;
-  border: 2px solid var(--cais-primary);
+  width: 72px;
+  height: 72px;
+  background: var(--cais-panel);
+  border: 1px solid var(--cais-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px auto;
-  font-size: 2rem;
-  font-weight: bold;
+  margin: 0 auto 18px;
+  font-size: 1.7rem;
+  font-weight: 750;
   color: var(--cais-primary);
   position: relative;
-  z-index: 2; /* El círculo siempre estará por encima de la línea */
-  transition: all 0.3s ease;
+  z-index: 2;
+  transition: all 0.3s;
 }
 
+/* Animación: el círculo se rellena de cyan y brilla al hover */
 .process-step:hover .process-icon {
-  background-color: var(--cais-primary);
-  color: #000;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+  background: var(--cais-primary);
+  color: #03111c;
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
 }
 
-/* La línea horizontal que conecta los pasos */
+/* Línea conectora entre pasos (solo desktop) */
 @media (min-width: 768px) {
-  .process-step::before {
-    content: '';
+  .process-step:not(:first-child)::before {
+    content: "";
     position: absolute;
-    top: 40px; /* Justo a la mitad del circulito */
-    
-    /* Ajustamos la posición para que la línea nazca del centro del círculo anterior y muera en el actual */
-    left: -50%;
+    top: 36px;
+    right: 50%;
     width: 100%;
-    
-    height: 2px;
-    background-color: #1E293B;
-    z-index: 1; /* La línea se queda detrás de los círculos */
-  }
-  
-  /* Ocultar la línea en el primer paso */
-  .process-step:first-child::before {
-    display: none;
+    height: 1px;
+    background: var(--cais-border);
+    z-index: 1;
   }
 }
+
+
+/* ============================================================
+   8. PRECIOS
+   ============================================================ */
+.pricing-section {
+  background: radial-gradient(ellipse at 50% 0, rgba(14, 116, 144, 0.10), transparent 55%);
+}
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.7rem;
+  border: 1px solid var(--cais-border);
+  border-radius: 20px;
+  background: linear-gradient(155deg, #0d1b2e 0%, #081321 100%);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Animación: elevación + borde cyan + sombra al hover */
+.pricing-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+}
+
+/* Tarjeta destacada (plan popular) */
+.pricing-card-featured {
+  border-color: rgba(56, 189, 248, 0.65);
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.12),
+    0 20px 55px rgba(2, 132, 199, 0.10);
+}
+
+/* Iconos de precio e info */
+.pricing-icon,
+.info-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--cais-primary);
+  font-size: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.pricing-card h3 {
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 750;
+}
+
+.pricing-description {
+  color: var(--cais-muted);
+  min-height: 76px;
+}
+
+.price-label {
+  font-size: 0.78rem;
+  color: var(--cais-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.price-value {
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--cais-primary);
+  margin: 0.25rem 0;
+}
+
+.price-custom {
+  font-size: 1.35rem;
+}
+
+.scope-note {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  min-height: 42px;
+}
+
+/* Lista de features del plan */
+.plan-list {
+  list-style: none;
+  padding: 1.2rem 0;
+  margin: 0 0 1.6rem;
+  border-top: 1px solid var(--cais-border);
+  flex: 1;
+}
+
+.plan-list li {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  padding: 0.4rem 0;
+}
+
+/* Check decorativo */
+.plan-list li:before {
+  content: "✓";
+  color: var(--cais-primary);
+  font-weight: 800;
+  margin-right: 0.65rem;
+}
+
+/* Etiqueta "Popular" flotante */
+.popular-label {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  background: var(--cais-primary);
+  color: #03111c;
+  padding: 0.35rem 0.8rem;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pricing-disclaimer {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--cais-muted);
+  font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   9. TABLA COMPARATIVA
+   ============================================================ */
+.comparison-wrap {
+  border: 1px solid var(--cais-border);
+  border-radius: 16px;
+  overflow: hidden;        /* Desktop: recorta para respetar el radio */
+  background: var(--cais-panel);
+}
+
+/* El hijo table-responsive gestiona el scroll horizontal */
+.comparison-wrap .table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--cais-text);
+  --bs-table-border-color: var(--cais-border);
+  min-width: 560px;        /* Menos desborde en tablet */
+  margin-bottom: 0;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem 1.1rem;
+  text-align: center;
+  white-space: nowrap;     /* Evita que el texto se parta raro */
+}
+
+.comparison-table thead th {
+  background: #102239;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.comparison-table tbody th {
+  text-align: left;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.comparison-table td {
+  color: #b9c7d6;
+  font-size: 0.88rem;
+}
+
+.comparison-table .bi-check-lg {
+  color: var(--cais-primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Móvil: el wrapper deja de recortar y el scroll lo hace table-responsive */
+@media (max-width: 767.98px) {
+  .comparison-wrap {
+    overflow: hidden;      /* Mantener hidden aquí también: el scroll va dentro */
+  }
+
+  .comparison-table {
+    min-width: 520px;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.75rem 0.8rem;   /* Más compacto en móvil */
+    font-size: 0.82rem;
+  }
+}
+
+/* ============================================================
+   10. PANELES: INFO, MANTENIMIENTO, CONDICIONES, DOCUMENTOS
+   ============================================================ */
+
+/* Base común de paneles */
+.info-panel,
+.maintenance-card,
+.maintenance-detail,
+.condition-card,
+.documents-panel {
+  border: 1px solid var(--cais-border);
+  border-radius: 17px;
+  background: linear-gradient(145deg, rgba(13, 27, 46, 0.9), rgba(8, 17, 31, 0.9));
+  padding: 1.7rem;
+}
+
+.info-panel h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.info-panel p,
+.maintenance-card p,
+.maintenance-detail p,
+.condition-card p {
+  color: var(--cais-muted);
+  margin-bottom: 0;
+}
+
+.maintenance-heading {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.maintenance-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.maintenance-card h4 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.maintenance-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--cais-primary);
+  margin: 0.7rem 0;
+}
+
+.maintenance-card p {
+  font-size: 0.85rem;
+}
+
+.maintenance-detail h4 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.maintenance-detail p + p {
+  margin-top: 0.8rem;
+}
+
+/* Tarjeta de condición con icono lateral */
+.condition-card {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.4rem;
+}
+
+.condition-card > i {
+  font-size: 1.4rem;
+  color: var(--cais-primary);
+  flex: 0 0 28px;
+}
+
+.condition-card h4 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.condition-card p {
+  font-size: 0.9rem;
+}
+
+.documents-panel {
+  padding: 2.5rem 1.5rem;
+}
+
+.documents-panel h3 {
+  color: #fff;
+  font-weight: 750;
+}
+
+/* Base común de paneles */
+.info-panel,
+.maintenance-card,
+.maintenance-detail,
+.condition-card,
+.documents-panel {
+  border: 1px solid var(--cais-border);
+  border-radius: 17px;
+  background: linear-gradient(145deg, rgba(13, 27, 46, 0.9), rgba(8, 17, 31, 0.9));
+  padding: 1.7rem;
+  /* NUEVO: misma transición que .value-card */
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Animación: mismo efecto "glow" que las .value-card */
+.info-panel:hover,
+.maintenance-card:hover,
+.condition-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   11. FAQ (acordeón nativo con <details>)
+   ============================================================ */
+.faq-list {
+  max-width: 850px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--cais-border);
+  padding: 1.15rem 0.2rem;
+  transition: all 0.3s ease; /* NUEVO: prepara la transición */
+}
+
+/* NUEVO: Efecto Hover (brillo sutil en el fondo y borde) */
+.faq-item:hover {
+  background: rgba(56, 189, 248, 0.03); /* Un toque muy sutil de cyan */
+  padding-left: 1rem; /* Se desplaza un poquito a la derecha */
+  padding-right: 1rem;
+  border-bottom-color: rgba(56, 189, 248, 0.4); /* La línea de abajo brilla */
+}
+
+.faq-item summary {
+  cursor: pointer;
+  color: #f1f5f9;
+  font-weight: 650;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: color 0.25s ease; /* NUEVO: transición para el texto */
+}
+
+/* NUEVO: El texto se ilumina al pasar el mouse */
+.faq-item summary:hover {
+  color: var(--cais-primary);
+}
+
+/* Oculta el marcador por defecto del summary */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Icono "+" a la derecha */
+.faq-item summary:after {
+  content: "+";
+  color: var(--cais-primary);
+  font-size: 1.35rem;
+  line-height: 1;
+  transition: transform 0.3s ease; /* NUEVO: Para que rote el icono */
+}
+
+/* Animación: el "+" cambia a "−" cuando está abierto */
+.faq-item[open] summary:after {
+  content: "−";
+  transform: rotate(180deg); /* NUEVO: Gira el icono 180 grados */
+}
+
+/* NUEVO: Animación de la respuesta al abrir */
+.faq-item p {
+  color: var(--cais-muted);
+  padding: 1rem 2rem 0 0;
+  margin: 0;
+  /* Creamos una animación personalizada */
+  animation: fadeInSlideDown 0.4s ease-out forwards;
+}
+
+/* NUEVO: Los Keyframes de la animación */
+@keyframes fadeInSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* Empieza un poquito más arriba */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Termina en su posición natural */
+  }
+}
+
+
+/* ============================================================
+   12. CONTACTO
+   ============================================================ */
+.contact-section {
+  background: radial-gradient(circle at center 40%, rgba(56, 189, 248, 0.13), transparent 62%);
+}
+
+
+/* ============================================================
+   13. FOOTER
+   ============================================================ */
+footer {
+  border-color: var(--cais-border) !important;
+}
+
+/* Animación: los links cambian a cyan al hover */
+footer a {
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--cais-primary) !important;
+}
+
+
+/* ============================================================
+   14. RESPONSIVE (móvil)
+   ============================================================ */
+@media (max-width: 767.98px) {
+  .hero-wrapper {
+    min-height: 75vh !important;
+  }
+
+  .hero-lead {
+    font-size: 1.05rem;
+  }
+
+  .pricing-card {
+    padding: 1.7rem 1.35rem;
+  }
+
+  /* En móvil eliminamos alturas mínimas para evitar huecos */
+  .pricing-description,
+  .scope-note {
+    min-height: 0;
+  }
+
+  .process-step {
+    padding-bottom: 1.2rem;
+  }
+
+  .condition-card {
+    padding: 1.2rem;
+  }
+
+  .documents-panel .btn {
+    width: 100%;
+  }
+}
+
+
+/* ============================================================
+   15. ACCESIBILIDAD — REDUCED MOTION
+   Desactiva scroll suave, transiciones y animaciones si el
+   usuario lo pide a nivel de sistema operativo.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
