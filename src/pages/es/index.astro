@@ -217,6 +217,28 @@ const t = await import('../../i18n/es.json');
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact-section py-5 section-divider"><div class="container py-5"><div class="row justify-content-center text-center"><div class="col-lg-8"><span class="section-kicker">LET'S BUILD SOMETHING</span><h2 class="display-4 fw-bold text-white mb-4">{t.contact.title}</h2><p class="lead text-secondary mb-5">{t.contact.subtitle}</p><div class="d-flex flex-column flex-sm-row justify-content-center gap-3"><a href="mailto:cais.theteam@gmail.com" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill"><i class="bi bi-envelope me-2"></i>{t.contact.btn_email}</a><a href="https://wa.me/61411918190?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20web%20project." target="_blank" rel="noopener" class="btn btn-primary btn-lg px-4 py-3 rounded-pill"><i class="bi bi-whatsapp me-2"></i>{t.contact.btn_whatsapp}</a></div></div></div></div></section>
+<!-- CONTACT -->
+<section id="contact" class="contact-section py-5 section-divider">
+  <div class="container py-5">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <span class="section-kicker">LET'S BUILD SOMETHING</span>
+        <h2 class="display-4 fw-bold text-white mb-4">{t.contact.title}</h2>
+        <p class="lead text-secondary mb-5">{t.contact.subtitle}</p>
+        
+        <!-- BOTONES REDISEÑADOS -->
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+          <a href="mailto:cais.theteam@gmail.com" class="btn btn-outline-light px-4 py-2 fs-5 rounded-3">
+            <i class="bi bi-envelope me-2"></i>{t.contact.btn_email}
+          </a>
+          <a href="https://wa.me/61411918190?text=Hi%2C%20I%27d%20like%20to%20talk%20about%20a%20web%20project." target="_blank" rel="noopener" class="btn btn-primary px-4 py-2 fs-5 rounded-3 fw-bold">
+            <i class="bi bi-whatsapp me-2"></i>{t.contact.btn_whatsapp}
+          </a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
 </Base>
